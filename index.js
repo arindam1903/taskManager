@@ -21,7 +21,7 @@ const add = () => {
     document.getElementById('input').value = '';
     let list = document.createElement('li');
     let span=document.createElement('span');
-    
+    span.className='close-button';
     let cross=document.createTextNode('X');
     
 
@@ -30,14 +30,14 @@ const add = () => {
     list.appendChild(task);
     list.appendChild(span);
     itemsList.appendChild(list);
-    list.onclick=" console.log(5);"
-
+span.className='close-button';
   }
 }
 for (let i = 0; i < items.length; i++) {
 
   let list = document.createElement('li');
   let span=document.createElement('span');
+  span.className='close-button';
   let cross=document.createTextNode('X');
   let task = document.createTextNode(items[i]);
   span.appendChild(cross);
@@ -56,4 +56,13 @@ while(itemsList.firstChild){
   itemsList.removeChild(itemsList.lastChild);
 }
   
+}
+
+var close=document.getElementsByClassName('close-button');
+for (let i=0;i<close.length;i++){
+  close[i].onclick=function(){
+    var div=this.parentElement;
+    div.style.display='none';
+    console.log(this.parentElement)
+  }
 }
